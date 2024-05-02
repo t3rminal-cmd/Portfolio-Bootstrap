@@ -15,7 +15,9 @@
 - Sleek & clean minimalist design.
 
   ![Screenshots](preview1.png)
+  
   ![Screenshots](preview2.png)
+  
   ![Screenshots](preview3.png)
   ![Screenshots](preview4.png)
   ![Screenshots](preview5.png)
