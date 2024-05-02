@@ -13,12 +13,3 @@
 - Project contains modals, validation form, image carousels, cards,
   and redirect buttons.
 - Sleek & clean minimalist design.
-
-  ![Screenshots](preview1.png)
-  
-  ![Screenshots](preview2.png)
-  
-  ![Screenshots](preview3.png)
-  ![Screenshots](preview4.png)
-  ![Screenshots](preview5.png)
-  ![Screenshots](preview6.png)
