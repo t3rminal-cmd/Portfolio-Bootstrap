@@ -159,12 +159,10 @@ header img {
 .carousel-control-prev-icon::before,
 .carousel-control-next-icon::before {
   content: none;
-  /* Remove default arrow icon */
 }
 
 .carousel-control-prev-icon::after {
   content: '\f053';
-  /* Add Font Awesome left arrow icon */
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   font-size: 24px;
@@ -173,7 +171,6 @@ header img {
 
 .carousel-control-next-icon::after {
   content: '\f054';
-  /* Add Font Awesome right arrow icon */
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   font-size: 24px;

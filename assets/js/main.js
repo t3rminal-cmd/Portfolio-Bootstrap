@@ -56,14 +56,6 @@ document.getElementById("contactForm").addEventListener("submit", function(event
   document.getElementById("contactForm").reset(); // Clear form fields after submission
 });
 
-/*--===== LEAFLET JS ====================================-*/
-var map = L.map('map').setView([41.878876, -87.635918], 13);
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
 /*--===== MODAL JS ======================================-*/
 const myModal = document.getElementById('myModal')
 const myInput = document.getElementById('myInput')
