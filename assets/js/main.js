@@ -7,30 +7,65 @@ document.documentElement.classList.add("js");
   var root = document.documentElement;
   var button = document.querySelector(".theme-toggle");
   if (!button) return;
+  var themeColor = document.querySelector('meta[name="theme-color"]');
 
-  function syncLabel() {
-    var next = root.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
+  function sync() {
+    var theme = root.getAttribute("data-theme");
+    var next = theme === "dark" ? "light" : "dark";
     button.setAttribute("aria-label", "Switch to " + next + " theme");
+    if (themeColor) themeColor.setAttribute("content", theme === "dark" ? "#0b0e14" : "#f5f3ee");
   }
 
   button.addEventListener("click", function () {
-    var next = root.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
-    root.setAttribute("data-bs-theme", next);
+    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
     try {
       localStorage.setItem("pf-theme", next);
     } catch (e) {
       // Storage can be blocked (private mode); the toggle still works for this visit.
     }
-    syncLabel();
+    sync();
   });
-  syncLabel();
+  sync();
+})();
+
+/*===== PHONE MENU =======================================*/
+(function () {
+  var toggle = document.querySelector(".menu-toggle");
+  var menu = document.getElementById("menu");
+  if (!toggle || !menu) return;
+
+  function setOpen(open) {
+    menu.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+
+  toggle.addEventListener("click", function () {
+    setOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
+  // Close after picking a link, on Escape, or when tapping outside the menu.
+  menu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () { setOpen(false); });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && menu.classList.contains("is-open")) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  document.addEventListener("click", function (e) {
+    if (menu.classList.contains("is-open") && !menu.contains(e.target) && !toggle.contains(e.target)) {
+      setOpen(false);
+    }
+  });
 })();
 
 /*===== HERO TYPING ANIMATION ============================*/
 (function () {
   var el = document.getElementById("typing-animation");
   if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  var words = ["Web Developer", "Web Designer", "Photographer", "Runner", "Snowboarder", "Foodie"];
+  var words = ["web developer", "web designer", "photographer", "runner", "snowboarder", "foodie"];
   var word = 0;
   var chars = el.textContent.length;
   var deleting = true;
@@ -57,20 +92,9 @@ document.documentElement.classList.add("js");
   setTimeout(tick, 1600);
 })();
 
-/*===== CLOSE THE PHONE MENU AFTER PICKING A LINK ========*/
-(function () {
-  var menu = document.getElementById("mainNav");
-  if (!menu || !window.bootstrap) return;
-  menu.querySelectorAll(".nav-link").forEach(function (link) {
-    link.addEventListener("click", function () {
-      if (menu.classList.contains("show")) bootstrap.Collapse.getOrCreateInstance(menu).hide();
-    });
-  });
-})();
-
 /*===== HIGHLIGHT THE CURRENT SECTION IN THE NAV =========*/
 (function () {
-  var links = Array.prototype.slice.call(document.querySelectorAll(".site-nav .nav-link"));
+  var links = Array.prototype.slice.call(document.querySelectorAll(".menu a"));
   if (!links.length || !("IntersectionObserver" in window)) return;
   var byId = {};
   links.forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
@@ -88,15 +112,15 @@ document.documentElement.classList.add("js");
       }
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
-  document.querySelectorAll("main [id]").forEach(function (section) {
-    if (byId[section.id] || section.id === "home") observer.observe(section);
+  document.querySelectorAll("main section[id]").forEach(function (section) {
+    observer.observe(section);
   });
 })();
 
 /*===== REVEAL ON SCROLL =================================*/
 (function () {
-  var items = document.querySelectorAll(".feature, .project, .skill-group, .contact-card, .section-head");
   if (!("IntersectionObserver" in window)) return;
+  var items = document.querySelectorAll(".section-head, .contact-intro, .feature, .project, .terminal, .contact-form");
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -104,14 +128,14 @@ document.documentElement.classList.add("js");
         observer.unobserve(entry.target);
       }
     });
-  }, { rootMargin: "0px 0px -10% 0px" });
+  }, { rootMargin: "0px 0px -8% 0px" });
   items.forEach(function (el) {
     el.classList.add("reveal");
     observer.observe(el);
   });
 })();
 
-/*===== SCROLL TO TOP ====================================*/
+/*===== BACK TO TOP ======================================*/
 (function () {
   var button = document.querySelector(".scroll-to-top");
   if (!button) return;
@@ -119,7 +143,7 @@ document.documentElement.classList.add("js");
     window.scrollTo({ top: 0 });
   });
   function update() {
-    button.classList.toggle("is-visible", window.scrollY > 400);
+    button.classList.toggle("is-visible", window.scrollY > 500);
   }
   window.addEventListener("scroll", update, { passive: true });
   update();
@@ -140,7 +164,7 @@ document.querySelectorAll(".js-year").forEach(function (el) {
   var button = form.querySelector("button[type=submit]");
 
   function say(kind, text) {
-    status.className = "form-status small mt-3 mb-0 text-" + kind;
+    status.setAttribute("data-kind", kind);
     status.textContent = text;
   }
 
@@ -148,7 +172,9 @@ document.querySelectorAll(".js-year").forEach(function (el) {
     e.preventDefault();
     form.classList.add("was-validated");
     if (!form.checkValidity()) {
-      say("danger", "Please fill in every field.");
+      say("error", "Please fill in every field.");
+      var firstInvalid = form.querySelector(":invalid:not(.honeypot)");
+      if (firstInvalid) firstInvalid.focus();
       return;
     }
     if (!window.fetch) {
@@ -156,7 +182,7 @@ document.querySelectorAll(".js-year").forEach(function (el) {
       return;
     }
     button.disabled = true;
-    say("body-secondary", "Sending…");
+    say("info", "Sending…");
     fetch(form.action.replace("formsubmit.co/", "formsubmit.co/ajax/"), {
       method: "POST",
       headers: { Accept: "application/json" },
@@ -173,7 +199,7 @@ document.querySelectorAll(".js-year").forEach(function (el) {
         say("success", "Thanks! Your message was sent. I'll get back to you soon.");
       })
       .catch(function () {
-        say("body-secondary", "Opening the secure form to finish sending…");
+        say("info", "Opening the secure form to finish sending…");
         form.submit();
       })
       .then(function () {
