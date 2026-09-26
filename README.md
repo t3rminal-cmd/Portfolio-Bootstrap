@@ -35,7 +35,7 @@ index.html              The whole site, including the icon sprite
 assets/css/styles.css   Theme colors, layout, animations
 assets/js/main.js       Theme toggle, phone menu, typing, nav highlight, reveal, back-to-top, contact form
 assets/fonts/           Space Grotesk and JetBrains Mono (licenses inside)
-assets/img/             Hero photo and project screenshots (WebP)
+assets/img/             Avatar (SVG), link-preview image and project screenshots
 assets/icons/           Favicon and Apple touch icon
 screenshots/            Images used in this README
 ```
@@ -54,6 +54,8 @@ No build step and nothing to install.
 | To change… | Edit |
 |---|---|
 | Intro, About text, projects, skills | `index.html` |
+| Avatar (the "J" monogram) | `assets/img/avatar.svg`. To use a photo instead, add it to `assets/img/` and change the hero `<img>` in `index.html`. |
+| Link preview (shown when the site is shared) | `assets/img/og-image.png`, 1200 × 630 |
 | Typing animation words | `words` in `assets/js/main.js` |
 | Colors (dark and light) | The variables at the top of `assets/css/styles.css`. `--accent` is the blue and `--red` the red. |
 | Contact form destination | The FormSubmit URL in the form's `action` in `index.html` |
