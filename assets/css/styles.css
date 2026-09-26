@@ -427,6 +427,16 @@ img {
   font-size: 16px; /* no zoom-on-focus on iPhone */
 }
 
+.contact-email {
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.contact-email:hover {
+  text-decoration: underline;
+}
+
 /*===== FOOTER ===========================================*/
 .site-footer {
   padding: 3rem 0;
