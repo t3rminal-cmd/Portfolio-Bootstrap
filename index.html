@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pedro | Web Developer &amp; Designer</title>
   <meta name="description" content="Pedro, a Chicago web developer and designer building fast, mobile-first websites and web apps.">
-  <meta name="theme-color" content="#0b0e14">
+  <meta name="theme-color" content="#0c0f14">
   <!-- SOCIAL PREVIEW -->
   <meta property="og:title" content="Pedro | Web Developer & Designer">
   <meta property="og:description" content="Fast, mobile-first websites and web apps from Chicago.">
@@ -27,7 +27,6 @@
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/RubikSprayPaint.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -89,21 +88,18 @@
     <section id="home" class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="prompt"><span class="prompt-path">~/chicago</span> <span class="prompt-sign">$</span> whoami</p>
-          <h1 class="hero-name">
-            <span class="visually-hidden">Pedro</span>
-            <span class="spray" aria-hidden="true"><span style="--i:0">P</span><span class="drip" style="--i:1;--x:52%;--h:34px;--c:var(--paint-2)">E</span><span style="--i:2">D</span><span class="drip" style="--i:3;--x:38%;--h:22px;--c:var(--paint-3)">R</span><span style="--i:4">O</span></span>
-          </h1>
+          <p class="eyebrow"><svg class="i" aria-hidden="true"><use href="#i-geo-alt-fill"/></svg>Chicago, IL</p>
+          <h1 class="hero-title">Hi, I'm Pedro.</h1>
           <p class="hero-role">
             <span class="visually-hidden">Web developer, designer, photographer, runner, snowboarder and foodie.</span>
-            <span aria-hidden="true"><span class="role-arrow">&gt;</span> <span id="typing-animation">web developer</span><span class="caret"></span></span>
+            <span aria-hidden="true"><span id="typing-animation">Web Developer</span><span class="caret"></span></span>
           </p>
           <p class="hero-lead">
             I design and build fast, mobile-first websites and web apps, from field tools for law enforcement to
             personal portfolios, with clean code and interfaces people enjoy using.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-paint" href="#projects">
+            <a class="btn btn-primary" href="#projects">
               <svg class="i" aria-hidden="true"><use href="#i-grid-1x2-fill"/></svg>See my work
             </a>
             <a class="btn btn-ghost" href="#contact">
@@ -117,13 +113,8 @@
           </ul>
         </div>
 
-        <figure class="hero-art">
-          <div class="pasteup">
-            <img src="assets/img/hero.webp" width="720" height="720" alt="Pedro standing on a city street at night">
-            <span class="tape tape-1" aria-hidden="true"></span>
-            <span class="tape tape-2" aria-hidden="true"></span>
-          </div>
-          <figcaption class="marker-tag"><svg class="i" aria-hidden="true"><use href="#i-geo-alt-fill"/></svg>Chicago, IL</figcaption>
+        <figure class="hero-photo">
+          <img src="assets/img/hero.webp" width="720" height="720" alt="Pedro standing on a city street at night">
         </figure>
       </div>
     </section>
@@ -132,25 +123,25 @@
     <section id="about" class="section">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">what I do</p>
-          <h2 class="section-title">About</h2>
+          <p class="eyebrow">01 / About</p>
+          <h2 class="section-title">What I do</h2>
           <p class="section-lead">A web developer and designer who builds elegant, responsive web applications, and keeps them running after launch.</p>
         </div>
         <div class="card-grid">
           <article class="card feature">
-            <span class="splat splat-green" aria-hidden="true"><svg class="i"><use href="#i-palette2"/></svg></span>
+            <span class="feature-icon" aria-hidden="true"><svg class="i"><use href="#i-palette2"/></svg></span>
             <h3>Design</h3>
             <p>Clean, user-first interfaces with attention to detail: layouts, color, type and small touches like dark
               mode that make a site feel finished.</p>
           </article>
           <article class="card feature">
-            <span class="splat splat-cyan" aria-hidden="true"><svg class="i"><use href="#i-code-slash"/></svg></span>
+            <span class="feature-icon" aria-hidden="true"><svg class="i"><use href="#i-code-slash"/></svg></span>
             <h3>Development</h3>
             <p>Mobile-first front ends in HTML, CSS and JavaScript, and back ends in Python and Flask, built to be fast,
               accessible and easy to maintain.</p>
           </article>
           <article class="card feature">
-            <span class="splat splat-pink" aria-hidden="true"><svg class="i"><use href="#i-gear-wide-connected"/></svg></span>
+            <span class="feature-icon" aria-hidden="true"><svg class="i"><use href="#i-gear-wide-connected"/></svg></span>
             <h3>Launch &amp; maintenance</h3>
             <p>Deployment, hosting and automated publishing, plus updates, fixes and testing to keep your site running
               smoothly long after launch.</p>
@@ -163,8 +154,8 @@
     <section id="projects" class="section section-alt">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">recent work</p>
-          <h2 class="section-title">Projects</h2>
+          <p class="eyebrow">02 / Projects</p>
+          <h2 class="section-title">Recent work</h2>
           <p class="section-lead">A few things I've built.</p>
         </div>
 
@@ -174,7 +165,7 @@
               alt="LE Cyber-Docs home page with Quick Links, in dark mode">
           </div>
           <div class="project-body">
-            <span class="sticker">featured</span>
+            <span class="badge">Featured</span>
             <h3>LE Cyber-Docs</h3>
             <p>
               A field reference site for law enforcement: narcotic complaint forms with Illinois citations, a
@@ -185,7 +176,7 @@
               <li>Bootstrap 5</li><li>JavaScript</li><li>jsPDF</li><li>GitHub Actions</li>
             </ul>
             <div class="project-links">
-              <a class="btn btn-paint" href="https://t3rminal-cmd.github.io/LE-CyberDocs/" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-box-arrow-up-right"/></svg>Live site</a>
+              <a class="btn btn-primary" href="https://t3rminal-cmd.github.io/LE-CyberDocs/" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-box-arrow-up-right"/></svg>Live site</a>
               <a class="btn btn-ghost" href="https://github.com/t3rminal-cmd/LE-CyberDocs" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg>Code</a>
             </div>
           </div>
@@ -248,8 +239,8 @@
     <section id="skills" class="section">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">tools I use</p>
-          <h2 class="section-title">Skills</h2>
+          <p class="eyebrow">03 / Skills</p>
+          <h2 class="section-title">Tools I work with</h2>
         </div>
         <div class="terminal">
           <div class="terminal-bar" aria-hidden="true">
@@ -259,19 +250,19 @@
           <div class="terminal-body">
             <div class="skill-row">
               <p class="cmd"><span class="prompt-sign">$</span> ls front-end/</p>
-              <ul class="chips chips-green" aria-label="Front end">
+              <ul class="chips" aria-label="Front end">
                 <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Bootstrap 5</li><li>Responsive design</li><li>Accessibility</li>
               </ul>
             </div>
             <div class="skill-row">
               <p class="cmd"><span class="prompt-sign">$</span> ls back-end/</p>
-              <ul class="chips chips-cyan" aria-label="Back end">
+              <ul class="chips" aria-label="Back end">
                 <li>Python</li><li>Flask</li><li>Jinja2</li><li>Form handling</li>
               </ul>
             </div>
             <div class="skill-row">
               <p class="cmd"><span class="prompt-sign">$</span> ls ship-and-maintain/</p>
-              <ul class="chips chips-pink" aria-label="Ship and maintain">
+              <ul class="chips" aria-label="Ship and maintain">
                 <li>Git &amp; GitHub</li><li>GitHub Actions</li><li>GitHub Pages</li><li>Netlify</li>
               </ul>
             </div>
@@ -288,8 +279,8 @@
     <section id="contact" class="section section-alt">
       <div class="container contact-grid">
         <div class="contact-intro">
-          <p class="eyebrow">say hi</p>
-          <h2 class="section-title">Contact</h2>
+          <p class="eyebrow">04 / Contact</p>
+          <h2 class="section-title">Let's work together</h2>
           <p class="section-lead">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
           <a class="contact-email" href="mailto:S3cureTangoDown@proton.me">
             <svg class="i" aria-hidden="true"><use href="#i-envelope-fill"/></svg>S3cureTangoDown@proton.me
@@ -319,7 +310,7 @@
             <textarea name="message" id="message" rows="5" required></textarea>
             <p class="field-error">Please enter a message.</p>
           </div>
-          <button type="submit" class="btn btn-paint btn-block">
+          <button type="submit" class="btn btn-primary btn-block">
             <svg class="i" aria-hidden="true"><use href="#i-send-fill"/></svg>Send message
           </button>
           <p class="form-status" role="status" aria-live="polite"></p>
@@ -331,7 +322,7 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="footer-tag" aria-hidden="true">t3rminal_cmd</p>
+      <p class="footer-brand" aria-hidden="true"><span class="brand-prompt">&gt;_</span><span>t3rminal<span class="brand-accent">_cmd</span></span></p>
       <p>S3cureTangoDown LLC &middot; Chicago, IL</p>
       <p class="muted">&copy; <span class="js-year">2026</span> All rights reserved.</p>
     </div>

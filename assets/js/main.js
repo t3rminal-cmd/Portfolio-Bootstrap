@@ -13,7 +13,7 @@ document.documentElement.classList.add("js");
     var theme = root.getAttribute("data-theme");
     var next = theme === "dark" ? "light" : "dark";
     button.setAttribute("aria-label", "Switch to " + next + " theme");
-    if (themeColor) themeColor.setAttribute("content", theme === "dark" ? "#0b0e14" : "#f5f3ee");
+    if (themeColor) themeColor.setAttribute("content", theme === "dark" ? "#0c0f14" : "#f4f5f7");
   }
 
   button.addEventListener("click", function () {
@@ -65,7 +65,7 @@ document.documentElement.classList.add("js");
 (function () {
   var el = document.getElementById("typing-animation");
   if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  var words = ["web developer", "web designer", "photographer", "runner", "snowboarder", "foodie"];
+  var words = ["Web Developer", "Web Designer", "Photographer", "Runner", "Snowboarder", "Foodie"];
   var word = 0;
   var chars = el.textContent.length;
   var deleting = true;
