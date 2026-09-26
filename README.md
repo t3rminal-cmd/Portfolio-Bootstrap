@@ -2,7 +2,7 @@
 
 My personal portfolio: a single, fast, mobile-first page with my projects, what I do, the tools I use, and a contact form.
 
-**Live:** https://portfolio-jazzy.netlify.app
+**Live:** https://t3rminal-cmd.github.io/Portfolio-Bootstrap/
 
 ![Portfolio home page in light mode](screenshots/desktop-light.jpg)
 
@@ -56,7 +56,9 @@ No build step. Bootstrap, Bootstrap Icons and the Poppins font load from CDNs.
 | Add a project | Copy a `<div class="col-md-6 col-lg-4">` project card in `index.html`, and add a screenshot (WebP, about 960px wide) to `assets/img/` |
 
 ## Deploying
-Hosted on Netlify from the `main` branch. Every push to `main` republishes the site.
+Hosted on **GitHub Pages**. Every push to `main` runs **Deploy Site** (`.github/workflows/pages.yml`), which publishes `index.html` and `assets/`. The site updates in about 20 seconds.
+
+One-time setup: Settings → Pages → Build and deployment → Source: **GitHub Actions**.
 
 ## Built with
 HTML5 · CSS3 · JavaScript · [Bootstrap 5.3](https://getbootstrap.com) · [Bootstrap Icons](https://icons.getbootstrap.com) · [FormSubmit](https://formsubmit.co)
