@@ -1,4 +1,4 @@
-# Pedro | Web Developer & Designer
+# Justin | Web Developer & Designer
 
 My personal portfolio: a single, fast, mobile-first page with my projects, what I do, the tools I use, and a contact form. The design is urban and professional: charcoal and concrete tones, a city-grid backdrop, and a Chicago-flag blue accent with a touch of red.
 
