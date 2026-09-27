@@ -32,7 +32,7 @@ jobs:
       - name: Collect site files
         run: |
           mkdir _site
-          cp -r index.html assets _site/
+          cp -r index.html assets resume _site/
 
       - name: Set up Pages
         uses: actions/configure-pages@v5
