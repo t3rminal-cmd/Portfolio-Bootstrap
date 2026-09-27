@@ -6,8 +6,6 @@ My personal portfolio: a single, fast, mobile-first page with my projects, what 
 
 ![Portfolio home page in dark mode](screenshots/desktop-dark.jpg)
 
-![Projects section in light mode, featuring LE Cyber-Docs](screenshots/desktop-light-projects.jpg)
-
 ## Features
 - **Mobile-first layout.** Phones get a compact photo at the top, a drop-down menu and full-width buttons. Tablets and desktops add columns.
 - **Urban, professional style:**
@@ -16,7 +14,7 @@ My personal portfolio: a single, fast, mobile-first page with my projects, what 
   - a terminal window for the skills list.
 - **Dark / light theme.** Dark by default. It follows a light device setting, switches with one tap, and remembers your choice.
 - **Hero** with a typing animation (web developer, web designer, photographer, runner, snowboarder, foodie).
-- **Projects:** LE Cyber-Docs is featured, with live-site and code links on every card.
+- **Projects:** a featured project plus a grid of cards, with live-site and code links.
 - **Online résumé** (`/resume/`): a sample résumé for a fictional running back turned web developer. It has a career-stats scoreboard, prints to a clean one-page PDF, and has a QR code that opens the live version.
 - **Contact form:** it checks the fields, then sends through [FormSubmit](https://formsubmit.co) without leaving the page. A hidden honeypot field catches spam bots.
 - **Navigation:** a sticky bar that highlights the section you're reading, smooth scrolling, sections that fade in, and a back-to-top button.
