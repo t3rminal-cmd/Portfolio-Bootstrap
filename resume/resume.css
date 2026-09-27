@@ -140,20 +140,6 @@ ul, ol {
   color: var(--accent-light);
 }
 
-.sample-note {
-  order: 3;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.45rem;
-  width: 100%;
-  font-size: 0.9rem;
-}
-
-.sample-note .i {
-  margin-top: 0.2rem;
-  color: var(--red-light);
-}
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -189,30 +175,6 @@ ul, ol {
   padding: 1.75rem 1.25rem 2rem;
   background: var(--side);
   color: var(--side-text);
-}
-
-.portrait {
-  position: relative;
-  width: 8.5rem;
-  margin-bottom: 1.25rem;
-}
-
-.portrait img {
-  border: 3px solid var(--side-border);
-  border-radius: 50%;
-}
-
-/* A red jersey-number tag */
-.jersey-tag {
-  position: absolute;
-  right: -0.35rem;
-  bottom: 0.35rem;
-  padding: 0.1rem 0.5rem;
-  border: 2px solid var(--side);
-  border-radius: 0.45rem;
-  background: var(--red-light);
-  color: #1a0206;
-  font: 800 0.85rem var(--font-mono);
 }
 
 .name {
@@ -548,17 +510,6 @@ ul, ol {
     padding: 1.5rem 1.5rem 1rem;
   }
 
-  .sample-note {
-    order: 0;
-    width: auto;
-    flex: 1;
-    justify-content: center;
-  }
-
-  .btn {
-    margin-left: 0;
-  }
-
   .sheet {
     display: grid;
     grid-template-columns: 19rem 1fr;
@@ -569,10 +520,6 @@ ul, ol {
 
   .sidebar {
     padding: 2.25rem 1.75rem;
-  }
-
-  .portrait {
-    width: 10rem;
   }
 
   .content {
@@ -636,15 +583,6 @@ ul, ol {
 
   .sidebar {
     padding: 0.2in 0.18in;
-  }
-
-  .portrait {
-    width: 1.2in;
-    margin-bottom: 0.12in;
-  }
-
-  .jersey-tag {
-    color: #fff;
   }
 
   .side-block {

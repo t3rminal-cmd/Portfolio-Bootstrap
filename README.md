@@ -36,7 +36,7 @@ index.html              The whole site, including the icon sprite
 assets/css/styles.css   Theme colors, layout, animations
 assets/js/main.js       Theme toggle, phone menu, typing, nav highlight, reveal, back-to-top, contact form
 assets/fonts/           Space Grotesk and JetBrains Mono (licenses inside)
-assets/img/             Avatar (SVG), link-preview image and project screenshots
+assets/img/             Hero photo, link-preview image and project screenshots
 assets/icons/           Favicon and Apple touch icon
 resume/                 The sample online résumé: page, styles, print button, portrait and QR code
 screenshots/            Images used in this README
@@ -56,7 +56,7 @@ No build step and nothing to install.
 | To change… | Edit |
 |---|---|
 | Intro, About text, projects, skills | `index.html` |
-| Avatar (the "J" monogram) | `assets/img/avatar.svg`. To use a photo instead, add it to `assets/img/` and change the hero `<img>` in `index.html`. |
+| Hero photo | `assets/img/justin.webp` (square, 800 × 800). To change it, add a new image to `assets/img/` and update the hero `<img>` in `index.html`. |
 | Link preview (shown when the site is shared) | `assets/img/og-image.png`, 1200 × 630 |
 | Résumé content | `resume/index.html`. The social links point to each platform's home page because the person is fictional; replace them with real profile URLs. |
 | Résumé QR code | Regenerate `resume/qr.svg` if the résumé moves: `pip install segno`, then `python3 -c "import segno; segno.make_qr('NEW-URL', error='q').save('resume/qr.svg', scale=8, border=2, dark='#161a20')"` |
