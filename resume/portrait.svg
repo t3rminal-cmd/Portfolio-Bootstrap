@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Illustrated portrait of Justin Tran in a navy number 24 jersey">
+  <defs>
+    <radialGradient id="bg" cx=".5" cy=".38" r=".75">
+      <stop offset="0" stop-color="#27506e"/>
+      <stop offset="1" stop-color="#0f1720"/>
+    </radialGradient>
+    <linearGradient id="jersey" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c3f73"/>
+      <stop offset="1" stop-color="#132c52"/>
+    </linearGradient>
+    <clipPath id="frame"><rect width="400" height="400"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="400" height="400" fill="url(#bg)"/>
+    <!-- faint yard lines -->
+    <g stroke="#ffffff" stroke-opacity=".06" stroke-width="3">
+      <path d="M0 330H400M0 260H400M0 190H400M0 120H400M0 50H400"/>
+    </g>
+    <!-- shoulders and jersey -->
+    <path d="M40 400 C48 330 96 300 150 290 L250 290 C304 300 352 330 360 400 Z" fill="url(#jersey)"/>
+    <!-- shoulder stripes -->
+    <path d="M70 336 C92 314 118 302 146 296" stroke="#ffffff" stroke-width="9" fill="none" stroke-linecap="round" opacity=".9"/>
+    <path d="M330 336 C308 314 282 302 254 296" stroke="#ffffff" stroke-width="9" fill="none" stroke-linecap="round" opacity=".9"/>
+    <path d="M79 350 C99 330 122 318 148 312" stroke="#ff5a6a" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M321 350 C301 330 278 318 252 312" stroke="#ff5a6a" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- neck -->
+    <path d="M172 244 H228 V296 C216 310 184 310 172 296 Z" fill="#c68a5e"/>
+    <path d="M172 262 C188 272 212 272 228 262 V244 H172 Z" fill="#b27a51" opacity=".7"/>
+    <!-- collar -->
+    <path d="M160 290 L200 324 L240 290" fill="none" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
+    <!-- number -->
+    <text x="200" y="382" text-anchor="middle" font-family="'Arial Black', Arial, Helvetica, sans-serif" font-weight="900" font-size="54" fill="#ffffff" letter-spacing="2">24</text>
+    <!-- ears -->
+    <ellipse cx="136" cy="176" rx="12" ry="18" fill="#c68a5e"/>
+    <ellipse cx="264" cy="176" rx="12" ry="18" fill="#c68a5e"/>
+    <!-- head -->
+    <ellipse cx="200" cy="170" rx="64" ry="78" fill="#d59c6f"/>
+    <!-- hair: short fade with a textured top -->
+    <path d="M136 162 C132 112 158 84 198 82 C242 80 270 104 266 160 C258 136 246 124 230 120 C210 128 180 128 164 118 C150 126 140 142 136 162 Z" fill="#17171b"/>
+    <path d="M150 112 C170 96 196 92 224 100" stroke="#2c2c33" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <!-- brows, eyes and smile, kept simple -->
+    <path d="M168 160 Q180 154 190 159M210 159 Q220 154 232 160" stroke="#17171b" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M172 176 Q180 170 188 176M212 176 Q220 170 228 176" stroke="#2a1d16" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M200 182 Q196 198 200 204" stroke="#b27a51" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M182 216 Q200 230 218 216" stroke="#7a3e2c" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

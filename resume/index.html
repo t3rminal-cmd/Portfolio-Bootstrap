@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Justin Tran | Front-End Web Developer | Résumé (sample)</title>
+  <meta name="description" content="Sample online résumé for a fictional front-end web developer: former varsity running back, computer science graduate.">
+  <meta name="theme-color" content="#0c0f14">
+  <!-- This is a design sample for a fictional person. Search engines shouldn't list it as a real résumé. -->
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="resume.css">
+</head>
+
+<body>
+  <!-- ICONS (from Bootstrap Icons, MIT license) -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true">
+    <symbol id="i-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/></symbol>
+    <symbol id="i-code-square" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+  <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0m2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0"/></symbol>
+    <symbol id="i-envelope-fill" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/></symbol>
+    <symbol id="i-geo-alt-fill" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></symbol>
+    <symbol id="i-github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></symbol>
+    <symbol id="i-globe2" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855q-.215.403-.395.872c.705.157 1.472.257 2.282.287zM4.249 3.539q.214-.577.481-1.078a7 7 0 0 1 .597-.933A7 7 0 0 0 3.051 3.05q.544.277 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9 9 0 0 1-1.565-.667A6.96 6.96 0 0 0 1.018 7.5zm1.4-2.741a12.3 12.3 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332M8.5 5.09V7.5h2.99a12.3 12.3 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.6 13.6 0 0 1 7.5 10.91V8.5zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741zm-3.282 3.696q.18.469.395.872c.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a7 7 0 0 1-.598-.933 9 9 0 0 1-.481-1.079 8.4 8.4 0 0 0-1.198.49 7 7 0 0 0 2.276 1.522zm-1.383-2.964A13.4 13.4 0 0 1 3.508 8.5h-2.49a6.96 6.96 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667m6.728 2.964a7 7 0 0 0 2.275-1.521 8.4 8.4 0 0 0-1.197-.49 9 9 0 0 1-.481 1.078 7 7 0 0 1-.597.933M8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855q.216-.403.395-.872A12.6 12.6 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.96 6.96 0 0 0 14.982 8.5h-2.49a13.4 13.4 0 0 1-.437 3.008M14.982 7.5a6.96 6.96 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008zM11.27 2.461q.266.502.482 1.078a8.4 8.4 0 0 0 1.196-.49 7 7 0 0 0-2.275-1.52c.218.283.418.597.597.932m-.488 1.343a8 8 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z"/></symbol>
+    <symbol id="i-info-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></symbol>
+    <symbol id="i-printer" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+  <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/></symbol>
+    <symbol id="i-telephone-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#resume">Skip to résumé</a>
+
+  <!-- TOOLBAR (not printed) -->
+  <header class="toolbar">
+    <a class="toolbar-back" href="../#projects">
+      <svg class="i" aria-hidden="true"><use href="#i-arrow-left"/></svg>Portfolio
+    </a>
+    <p class="sample-note">
+      <svg class="i" aria-hidden="true"><use href="#i-info-circle"/></svg>
+      Sample résumé: a fictional person, built as a design project.
+    </p>
+    <button class="btn btn-primary js-print" type="button">
+      <svg class="i" aria-hidden="true"><use href="#i-printer"/></svg>Print / Save PDF
+    </button>
+  </header>
+
+  <main id="resume" class="sheet">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="portrait">
+        <img src="portrait.svg" width="400" height="400" alt="Illustrated portrait of Justin Tran in a navy number 24 jersey">
+        <span class="jersey-tag" aria-hidden="true">#24</span>
+      </div>
+
+      <h1 class="name">Justin Tran</h1>
+      <p class="role">Front-End Web Developer</p>
+
+      <section class="side-block" aria-labelledby="contact-h">
+        <h2 id="contact-h" class="side-title">Contact</h2>
+        <ul class="contact-list">
+          <li><svg class="i" aria-hidden="true"><use href="#i-geo-alt-fill"/></svg>Chicago, IL</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-envelope-fill"/></svg><a href="mailto:justin.tran@example.com">justin.tran@example.com</a></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-telephone-fill"/></svg><a href="tel:+13125550142">(312) 555-0142</a></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-globe2"/></svg><a href="https://t3rminal-cmd.github.io/Portfolio-Bootstrap/">Portfolio</a></li>
+        </ul>
+      </section>
+
+      <!-- Social links go to each platform's home page, because this person is fictional.
+           Replace them with real profile URLs when using this as a template. -->
+      <section class="side-block" aria-labelledby="social-h">
+        <h2 id="social-h" class="side-title">Find me</h2>
+        <ul class="social-list">
+          <li><a href="https://github.com/" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg><span>GitHub</span><span class="handle">@justintran-dev</span></a></li>
+          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg><span>LinkedIn</span><span class="handle">in/justintran-dev</span></a></li>
+          <li><a href="https://codepen.io/" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-code-square"/></svg><span>CodePen</span><span class="handle">@justintran-dev</span></a></li>
+        </ul>
+      </section>
+
+      <section class="side-block" aria-labelledby="skills-h">
+        <h2 id="skills-h" class="side-title">Skills</h2>
+        <div class="skill-group">
+          <h3>Front end</h3>
+          <ul class="chips">
+            <li>HTML5</li><li>CSS Grid &amp; Flexbox</li><li>JavaScript (ES2022)</li><li>React</li><li>Tailwind CSS</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Quality</h3>
+          <ul class="chips">
+            <li>Accessibility (WCAG 2.2)</li><li>Performance</li><li>Responsive design</li><li>Testing (Vitest)</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Workflow</h3>
+          <ul class="chips">
+            <li>Git &amp; GitHub</li><li>GitHub Actions</li><li>Figma</li><li>Node.js</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="side-block qr-block" aria-labelledby="qr-h">
+        <h2 id="qr-h" class="side-title">Live version</h2>
+        <img class="qr" src="qr.svg" width="328" height="328" alt="QR code linking to t3rminal-cmd.github.io/Portfolio-Bootstrap/resume">
+        <p class="qr-note">Scan to open this résumé online, with working links.</p>
+      </section>
+    </aside>
+
+    <!-- MAIN COLUMN -->
+    <div class="content">
+      <section class="block" aria-labelledby="profile-h">
+        <h2 id="profile-h" class="block-title"><span class="block-num">01</span>Profile</h2>
+        <p class="profile">
+          Former varsity running back turned front-end developer. Football taught me to study film, run the same drill
+          until it's automatic and trust the people next to me; I bring that same approach to code reviews, component
+          libraries and shipping fast, accessible websites. I'm looking for a junior front-end role on a team that
+          cares about craft.
+        </p>
+      </section>
+
+      <!-- Scoreboard: the football theme -->
+      <section class="block" aria-labelledby="stats-h">
+        <h2 id="stats-h" class="block-title"><span class="block-num">02</span>Career stats</h2>
+        <dl class="scoreboard">
+          <div><dt>Sites shipped</dt><dd>14</dd></div>
+          <div><dt>Avg. Lighthouse score</dt><dd>97</dd></div>
+          <div><dt>Years coding</dt><dd>4</dd></div>
+          <div><dt>Senior-year rushing yards</dt><dd>1,240</dd></div>
+        </dl>
+      </section>
+
+      <section class="block" aria-labelledby="exp-h">
+        <h2 id="exp-h" class="block-title"><span class="block-num">03</span>Experience</h2>
+        <ol class="timeline">
+          <li>
+            <div class="entry-head">
+              <h3>Web Development Intern</h3>
+              <p class="when">Jun – Aug 2025</p>
+            </div>
+            <p class="where">Lakefront Digital Studio · Chicago, IL</p>
+            <ul class="bullets">
+              <li>Built 6 responsive landing pages from Figma designs for local restaurant and fitness clients.</li>
+              <li>Cut a client's home-page load time from 4.1 s to 1.3 s by converting images to WebP and lazy loading below the fold.</li>
+              <li>Fixed 40+ accessibility issues found in an audit, bringing two sites to WCAG 2.2 AA.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="entry-head">
+              <h3>Student Web Developer</h3>
+              <p class="when">2023 – 2026</p>
+            </div>
+            <p class="where">Lakeview State University, Athletics Communications</p>
+            <ul class="bullets">
+              <li>Maintained team pages for 18 varsity sports and built a live game-day scores widget used by 5,000+ fans a week.</li>
+              <li>Set up GitHub Actions to publish roster updates automatically, replacing a manual copy-and-paste process.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="entry-head">
+              <h3>Freelance Web Developer</h3>
+              <p class="when">2024 – present</p>
+            </div>
+            <p class="where">Self-employed · Chicago, IL</p>
+            <ul class="bullets">
+              <li>Designed and built sites for a youth football league, a barbershop and a personal-training gym.</li>
+              <li>Added online sign-ups for the league, which moved 90% of registrations off paper forms.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section class="block" aria-labelledby="proj-h">
+        <h2 id="proj-h" class="block-title"><span class="block-num">04</span>Projects</h2>
+        <div class="project-grid">
+          <article class="project">
+            <h3>Playbook UI</h3>
+            <p>A small React component library (buttons, forms, cards) with keyboard support and dark mode, documented in Storybook.</p>
+            <p class="tech">React · CSS Modules · Storybook</p>
+          </article>
+          <article class="project">
+            <h3>Game Day Tracker</h3>
+            <p>A mobile-first stat tracker for high-school coaches that works offline on the sideline and syncs when back online.</p>
+            <p class="tech">JavaScript · IndexedDB · PWA</p>
+          </article>
+          <article class="project">
+            <h3>Pantry Recipes</h3>
+            <p>Search recipes by what's in your kitchen. Screen-reader friendly, with a Lighthouse score of 100 for accessibility.</p>
+            <p class="tech">HTML · CSS · Fetch API</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="edu-h">
+        <h2 id="edu-h" class="block-title"><span class="block-num">05</span>Education</h2>
+        <ol class="timeline">
+          <li>
+            <div class="entry-head">
+              <h3>B.S. Computer Science, minor in Graphic Design</h3>
+              <p class="when">2022 – 2026</p>
+            </div>
+            <p class="where">Lakeview State University · GPA 3.6 · Dean's List (4 semesters)</p>
+            <p class="detail">Coursework: Web Development, Human-Computer Interaction, Data Structures, Databases, UI Design.</p>
+          </li>
+          <li>
+            <div class="entry-head">
+              <h3>High School Diploma</h3>
+              <p class="when">2018 – 2022</p>
+            </div>
+            <p class="where">Northside High School · Chicago, IL</p>
+            <p class="detail">Varsity football, running back #24 · Team captain (senior year) · All-Conference, 2021.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- How football carries over -->
+      <section class="block" aria-labelledby="field-h">
+        <h2 id="field-h" class="block-title"><span class="block-num">06</span>From the field to the front end</h2>
+        <ul class="crossover">
+          <li><strong>Film study</strong><span>→</span>Reading code reviews and bug reports closely, then fixing the pattern, not just the play.</li>
+          <li><strong>Reps</strong><span>→</span>Daily practice: a small component or CodePen almost every day since 2022.</li>
+          <li><strong>Team captain</strong><span>→</span>Clear communication, owning mistakes, and helping newer players up to speed.</li>
+          <li><strong>Game day</strong><span>→</span>Calm under deadlines; I ship on time and test before kickoff.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="page-foot">
+    <p>Sample résumé for a fictional person, built as a design project. <a href="../">Back to the portfolio</a></p>
+  </footer>
+
+  <script src="resume.js"></script>
+</body>
+
+</html>
