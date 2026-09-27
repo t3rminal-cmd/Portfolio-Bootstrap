@@ -54,8 +54,8 @@ No build step and nothing to install.
 | To change… | Edit |
 |---|---|
 | Intro, About text, projects, skills | `index.html` |
-| Hero photo | `assets/img/justin.webp` (square, 800 × 800). To change it, add a new image to `assets/img/` and update the hero `<img>` in `index.html`. |
-| Link preview (shown when the site is shared) | `assets/img/og-image.png`, 1200 × 630 |
+| Hero photo | `assets/img/justin-studio.webp` (square, 800 × 800). To change it, add a new image to `assets/img/` and update the hero `<img>` in `index.html`. |
+| Link preview (shown when the site is shared) | `assets/img/og-image-studio.png`, 1200 × 630 |
 | Résumé content | `resume/index.html`. The social links point to each platform's home page because the person is fictional; replace them with real profile URLs. The sheet is a fixed 8.5 × 11 in page, so if you add content, check that it still fits (anything past the bottom margin is cut off rather than spilling onto a second page). |
 | Résumé QR code | Regenerate `resume/qr.svg` if the résumé moves: `pip install segno`, then `python3 -c "import segno; segno.make_qr('NEW-URL', error='q').save('resume/qr.svg', scale=8, border=2, dark='#161a20')"` |
 | Typing animation words | `words` in `assets/js/main.js` |
@@ -69,6 +69,8 @@ No build step and nothing to install.
 Hosted on **GitHub Pages**. Every push to `main` runs **Deploy Site** (`.github/workflows/pages.yml`), which publishes `index.html`, `assets/` and `resume/` (not `tools/` or `screenshots/`). The site updates in about 20 seconds.
 
 One-time setup: Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+
+**Replacing an image?** Give the new file a new name (for example `justin-2027.webp`) and update the reference. GitHub Pages lets browsers cache files for about 10 minutes, and link previews on social sites much longer, so a new image saved under the old name can keep showing the old picture.
 
 ## Built with
 HTML5 · CSS3 · JavaScript · [Bootstrap Icons](https://icons.getbootstrap.com) (MIT) · [FormSubmit](https://formsubmit.co)
