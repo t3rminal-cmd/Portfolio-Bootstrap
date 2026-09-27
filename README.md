@@ -6,10 +6,7 @@ My personal portfolio: a single, fast, mobile-first page with my projects, what 
 
 ![Portfolio home page in dark mode](screenshots/desktop-dark.jpg)
 
-<p>
-  <img src="screenshots/desktop-light-projects.jpg" width="66%" alt="Projects section in light mode">
-  <img src="screenshots/phone-dark.jpg" width="30%" alt="Portfolio on a phone in dark mode">
-</p>
+![Projects section in light mode, featuring LE Cyber-Docs](screenshots/desktop-light-projects.jpg)
 
 ## Features
 - **Mobile-first layout.** Phones get a compact photo at the top, a drop-down menu and full-width buttons. Tablets and desktops add columns.
