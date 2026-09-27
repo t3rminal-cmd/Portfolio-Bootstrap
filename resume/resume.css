@@ -1,5 +1,5 @@
-/* Online résumé. Mobile-first: one column on phones, a two-column "sheet"
-   from tablets up, and an ink-friendly single page when printed. */
+/* Online résumé. One letter-size page (8.5 x 11 in) that looks the same on
+   screen and on paper. Phones get the same content in one scrolling column. */
 
 /*===== FONTS (shared with the portfolio) ====================*/
 @font-face {
@@ -19,23 +19,18 @@
 :root {
   --page: #0c0f14;
   --grid-line: rgba(255, 255, 255, 0.045);
-  --side: #141a23;
-  --side-2: #1c2430;
-  --side-border: #283243;
-  --side-text: #e7ebf0;
-  --side-muted: #a3adbb;
+  --page-text: #e7ebf0;
+  --page-muted: #a3adbb;
   --paper: #ffffff;
   --paper-2: #f3f5f8;
   --ink: #161a20;
   --ink-muted: #555e6c;
   --rule: #dde1e7;
   --accent: #0a6aa1;        /* on white */
-  --accent-light: #4cc2ff;  /* on the dark sidebar */
+  --accent-light: #4cc2ff;  /* on the dark page */
   --red: #c8102e;
-  --red-light: #ff5a6a;
   --font-body: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --radius: 1rem;
 }
 
 /*===== BASE =================================================*/
@@ -52,7 +47,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  line-height: 1.55;
+  line-height: 1.4;
   color: var(--ink);
   background-color: var(--page);
   background-image:
@@ -78,6 +73,16 @@ ul, ol {
   list-style: none;
 }
 
+a {
+  color: inherit;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
 :focus-visible {
   outline: 3px solid var(--accent-light);
   outline-offset: 3px;
@@ -89,6 +94,15 @@ ul, ol {
   width: 0;
   height: 0;
   overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .i {
@@ -120,10 +134,9 @@ ul, ol {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem 1rem;
-  max-width: 64rem;
+  max-width: 8.5in;
   margin: 0 auto;
   padding: 1rem;
-  color: var(--side-muted);
 }
 
 .toolbar-back {
@@ -131,7 +144,7 @@ ul, ol {
   align-items: center;
   gap: 0.4rem;
   min-height: 2.75rem;
-  color: var(--side-text);
+  color: var(--page-text);
   font-weight: 600;
   text-decoration: none;
 }
@@ -163,228 +176,152 @@ ul, ol {
 }
 
 /*===== SHEET ================================================*/
+/* Sizes inside the sheet are in pt so the screen and the printout match. */
 .sheet {
-  max-width: 64rem;
+  max-width: 8.5in;
   margin: 0 auto;
+  padding: 24pt 18pt;
   background: var(--paper);
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
+  font-size: 9.5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
-/*===== SIDEBAR ==============================================*/
-.sidebar {
-  padding: 1.75rem 1.25rem 2rem;
-  background: var(--side);
-  color: var(--side-text);
+/* Header: name on the left, contact details on the right */
+.sheet-head {
+  display: grid;
+  gap: 12pt;
+  padding-bottom: 12pt;
+  border-bottom: 2pt solid var(--ink);
 }
 
 .name {
-  font-size: clamp(2rem, 9vw, 2.4rem);
-  line-height: 1.05;
+  font-size: 30pt;
+  line-height: 1;
   letter-spacing: -0.03em;
 }
 
 .role {
-  margin-top: 0.35rem;
-  color: var(--accent-light);
-  font: 600 0.95rem var(--font-mono);
+  margin-top: 5pt;
+  color: var(--accent);
+  font: 600 10.5pt var(--font-mono);
 }
 
-.side-block {
-  margin-top: 1.75rem;
+.role::before {
+  content: "";
+  display: inline-block;
+  width: 14pt;
+  height: 2pt;
+  margin-right: 6pt;
+  vertical-align: middle;
+  background: var(--red);
 }
 
-.side-title {
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid var(--side-border);
-  color: var(--side-muted);
-  font: 600 0.75rem var(--font-mono);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.contact-list {
+  display: grid;
+  gap: 3pt 14pt;
+  font-size: 9pt;
 }
 
 .contact-list li {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  min-height: 2rem;
+  gap: 6pt;
+  min-width: 0;
   overflow-wrap: anywhere;
 }
 
 .contact-list .i {
-  color: var(--accent-light);
-}
-
-.sidebar a {
-  color: var(--side-text);
-  text-decoration-color: var(--accent-light);
-  text-underline-offset: 0.2em;
-}
-
-.sidebar a:hover {
-  color: var(--accent-light);
-}
-
-.social-list {
-  display: grid;
-  gap: 0.5rem;
-}
-
-.social-list a {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  column-gap: 0.7rem;
-  min-height: 2.75rem;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--side-border);
-  border-radius: 0.6rem;
-  background: var(--side-2);
-  text-decoration: none;
-}
-
-.social-list a:hover {
-  border-color: var(--accent-light);
-}
-
-.social-list .i {
-  grid-row: span 2;
-  font-size: 1.3rem;
-}
-
-.social-list span {
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.social-list .handle {
-  color: var(--side-muted);
-  font: 400 0.8rem var(--font-mono);
-}
-
-.skill-group + .skill-group {
-  margin-top: 0.9rem;
-}
-
-.skill-group h3 {
-  margin-bottom: 0.45rem;
-  font-size: 0.9rem;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.chips li {
-  padding: 0.15rem 0.55rem;
-  border: 1px solid var(--side-border);
-  border-radius: 0.35rem;
-  background: var(--side-2);
-  font: 500 0.78rem var(--font-mono);
-}
-
-.qr-block {
-  display: grid;
-  grid-template-columns: 6.5rem 1fr;
-  align-items: center;
-  column-gap: 1rem;
-}
-
-.qr-block .side-title {
-  grid-column: 1 / -1;
-}
-
-.qr {
-  padding: 0.35rem;
-  border-radius: 0.5rem;
-  background: #fff;
-}
-
-.qr-note {
-  color: var(--side-muted);
-  font-size: 0.88rem;
-}
-
-/*===== MAIN COLUMN ==========================================*/
-.content {
-  padding: 2rem 1.25rem 2.5rem;
-}
-
-.block + .block {
-  margin-top: 2.25rem;
-}
-
-.block-title {
-  display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-  font-size: 1.35rem;
-  letter-spacing: -0.02em;
-}
-
-.block-num {
-  color: var(--red);
-  font: 700 0.8rem var(--font-mono);
-}
-
-.profile {
-  color: var(--ink-muted);
-  font-size: 1.05rem;
+  color: var(--accent);
 }
 
 /* Career stats as a scoreboard */
 .scoreboard {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.6rem;
+  gap: 6pt;
+  margin: 12pt 0 14pt;
 }
 
 .scoreboard div {
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
-  padding: 0.85rem 0.9rem;
-  border-radius: 0.7rem;
-  background: var(--side);
-  color: var(--side-text);
+  padding: 6pt 9pt 7pt;
+  border: 1px solid var(--rule);
+  border-left: 3pt solid var(--accent);
+  border-radius: 4pt;
+  background: var(--paper-2);
 }
 
 .scoreboard dd {
-  color: var(--accent-light);
-  font: 700 clamp(1.7rem, 7vw, 2.1rem) / 1 var(--font-mono);
+  color: var(--accent);
+  font: 700 17pt / 1 var(--font-mono);
   letter-spacing: -0.02em;
 }
 
 .scoreboard dt {
-  margin-top: 0.35rem;
-  color: var(--side-muted);
-  font-size: 0.8rem;
-  line-height: 1.3;
+  margin-top: 3pt;
+  color: var(--ink-muted);
+  font-size: 8pt;
+  line-height: 1.2;
 }
 
-/* Experience and education */
+/* Columns */
+.sheet-body {
+  display: grid;
+  gap: 14pt;
+}
+
+.block + .block {
+  margin-top: 13pt;
+}
+
+.block-title {
+  display: flex;
+  align-items: center;
+  gap: 8pt;
+  margin-bottom: 7pt;
+  color: var(--ink);
+  font: 700 8.5pt var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* A thin rule that runs to the end of the column */
+.block-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.profile {
+  color: var(--ink-muted);
+  font-size: 9.75pt;
+}
+
+/* Experience */
 .timeline {
   display: grid;
-  gap: 1.4rem;
+  gap: 9pt;
 }
 
 .timeline > li {
   position: relative;
-  padding-left: 1.25rem;
-  border-left: 2px solid var(--rule);
+  padding-left: 11pt;
+  border-left: 1.5pt solid var(--rule);
 }
 
 .timeline > li::before {
   content: "";
   position: absolute;
-  left: -0.4rem;
-  top: 0.45rem;
-  width: 0.7rem;
-  height: 0.7rem;
-  border: 2px solid var(--paper);
+  left: -4pt;
+  top: 3.5pt;
+  width: 6.5pt;
+  height: 6.5pt;
+  border: 1.5pt solid var(--paper);
   border-radius: 50%;
   background: var(--accent);
 }
@@ -394,108 +331,132 @@ ul, ol {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
-  gap: 0.15rem 1rem;
+  gap: 1pt 10pt;
 }
 
-.entry-head h3 {
-  font-size: 1.05rem;
+.entry-head h3,
+.edu h3,
+.projects h3 {
+  font-size: 10pt;
 }
 
 .when {
   color: var(--accent);
-  font: 600 0.82rem var(--font-mono);
+  font: 600 8pt var(--font-mono);
   white-space: nowrap;
 }
 
 .where {
-  margin-top: 0.15rem;
   color: var(--ink-muted);
-  font-size: 0.92rem;
-}
-
-.detail {
-  margin-top: 0.4rem;
-  font-size: 0.95rem;
+  font-size: 8.75pt;
 }
 
 .bullets {
   display: grid;
-  gap: 0.35rem;
-  margin-top: 0.55rem;
+  gap: 2pt;
+  margin-top: 4pt;
 }
 
 .bullets li {
   position: relative;
-  padding-left: 1rem;
-  font-size: 0.95rem;
+  padding-left: 9pt;
 }
 
 .bullets li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.6em;
-  width: 0.4rem;
-  height: 2px;
+  top: 0.62em;
+  width: 4pt;
+  height: 1.5pt;
   background: var(--red);
 }
 
 /* Projects */
-.project-grid {
+.projects {
   display: grid;
-  gap: 0.75rem;
+  gap: 6pt;
 }
 
-.project {
-  padding: 1rem;
-  border: 1px solid var(--rule);
-  border-radius: 0.75rem;
-  background: var(--paper-2);
-}
-
-.project h3 {
-  margin-bottom: 0.3rem;
-  font-size: 1rem;
-}
-
-.project p {
-  font-size: 0.92rem;
-}
-
-.project .tech {
-  margin-top: 0.5rem;
+.projects .tech {
+  margin-left: 4pt;
   color: var(--accent);
-  font: 500 0.78rem var(--font-mono);
+  font: 500 7.5pt var(--font-mono);
+  white-space: nowrap;
 }
 
-/* Field to front end */
+.projects p {
+  color: var(--ink-muted);
+}
+
+/* Side column */
+.skill-group + .skill-group {
+  margin-top: 7pt;
+}
+
+.skill-group h3 {
+  margin-bottom: 4pt;
+  font-size: 8.75pt;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3pt;
+}
+
+.chips li {
+  padding: 1pt 5pt;
+  border: 1px solid var(--rule);
+  border-radius: 3pt;
+  background: var(--paper-2);
+  font: 500 7.5pt var(--font-mono);
+}
+
+.edu + .edu {
+  margin-top: 7pt;
+}
+
+.edu .when {
+  margin-top: 1pt;
+}
+
 .crossover {
   display: grid;
-  gap: 0.6rem;
-}
-
-.crossover li {
-  display: grid;
-  grid-template-columns: 7.5rem 1.2rem 1fr;
-  align-items: baseline;
-  font-size: 0.95rem;
+  gap: 4pt;
+  font-size: 8.75pt;
 }
 
 .crossover strong {
-  font-size: 0.9rem;
+  display: block;
+  color: var(--red);
+  font: 700 7.5pt var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.crossover span {
-  color: var(--red);
-  font-weight: 700;
+.qr-block {
+  display: grid;
+  grid-template-columns: 58pt 1fr;
+  align-items: center;
+  gap: 9pt;
+  padding: 7pt;
+  border: 1px solid var(--rule);
+  border-radius: 5pt;
+}
+
+.qr-note {
+  color: var(--ink-muted);
+  font-size: 8.25pt;
+  line-height: 1.3;
 }
 
 /*===== FOOTER ===============================================*/
 .page-foot {
-  max-width: 64rem;
+  max-width: 8.5in;
   margin: 0 auto;
   padding: 1.5rem 1rem 2.5rem;
-  color: var(--side-muted);
+  color: var(--page-muted);
   font-size: 0.88rem;
   text-align: center;
 }
@@ -504,66 +465,63 @@ ul, ol {
   color: var(--accent-light);
 }
 
-/*===== TABLETS AND UP =======================================*/
-@media (min-width: 48rem) {
+/*===== LARGER PHONES AND TABLETS ============================*/
+@media (min-width: 36rem) {
+  .contact-list {
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+  }
+
+  .scoreboard {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/*===== THE FULL PAGE: wide enough for a real 8.5 x 11 sheet =====*/
+@media (min-width: 9in) {
   .toolbar {
-    padding: 1.5rem 1.5rem 1rem;
+    padding: 1.5rem 0 1rem;
   }
 
   .sheet {
-    display: grid;
-    grid-template-columns: 19rem 1fr;
-    margin-bottom: 0;
-    border-radius: var(--radius);
+    width: 8.5in;
+    height: 11in;
+    padding: 0.45in 0.55in;
     overflow: hidden;
+    border-radius: 6pt;
+  }
+}
+
+/* Shared by the full-page screen layout and the printout */
+@media (min-width: 9in), print {
+  .sheet-head {
+    grid-template-columns: 1fr auto;
+    align-items: end;
   }
 
-  .sidebar {
-    padding: 2.25rem 1.75rem;
-  }
-
-  .content {
-    padding: 2.25rem 2.25rem 2.5rem;
+  .contact-list {
+    grid-template-columns: repeat(2, auto);
   }
 
   .scoreboard {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .project-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .sheet-body {
+    grid-template-columns: 1fr 2.1in;
+    gap: 0.3in;
   }
 }
 
-/*===== PRINT: one clean, ink-friendly page ==================*/
+/*===== PRINT: exactly one page ==============================*/
 @page {
   size: letter;
-  margin: 0.4in;
+  margin: 0;
 }
 
 @media print {
-  :root {
-    --side: #f1f3f6;
-    --side-2: #ffffff;
-    --side-border: #d5dae1;
-    --side-text: #161a20;
-    --side-muted: #555e6c;
-    --accent-light: #0a6aa1;
-    --red-light: #c8102e;
-  }
-
-  /* Most sizes are in rem, so shrinking the root scales the whole page */
-  html {
-    font-size: 7.9pt;
-  }
-
   body {
     background: #fff;
-    line-height: 1.38;
-  }
-
-  .timeline > li::before {
-    top: 0.3em;
   }
 
   .toolbar,
@@ -573,84 +531,16 @@ ul, ol {
   }
 
   .sheet {
-    display: grid;
-    grid-template-columns: 2.35in 1fr;
+    width: 8.5in;
+    height: 11in;
     max-width: none;
+    padding: 0.45in 0.55in;
+    overflow: hidden;
     box-shadow: none;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
   }
 
-  .sidebar {
-    padding: 0.2in 0.18in;
-  }
-
-  .side-block {
-    margin-top: 0.16in;
-  }
-
-  .content {
-    padding: 0.1in 0 0 0.25in;
-  }
-
-  .block + .block {
-    margin-top: 0.12in;
-  }
-
-  .block-title {
-    margin-bottom: 0.07in;
-  }
-
-  .scoreboard {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.06in;
-  }
-
-  .scoreboard div {
-    padding: 0.06in 0.08in;
-    border: 1px solid var(--side-border);
-  }
-
-  .timeline {
-    gap: 0.07in;
-  }
-
-  .bullets {
-    gap: 0.02in;
-    margin-top: 0.04in;
-  }
-
-  .project-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.08in;
-  }
-
-  .project {
-    padding: 0.07in 0.08in;
-  }
-
-  .crossover {
-    gap: 0.03in;
-  }
-
-  .social-list a {
-    min-height: 0;
-    padding: 0.04in 0.07in;
-  }
-
-  .contact-list li {
-    min-height: 0;
-    margin-bottom: 0.03in;
-  }
-
-  .qr-block {
-    grid-template-columns: 0.95in 1fr;
-  }
-
-  .timeline > li,
-  .project,
-  .scoreboard div {
-    break-inside: avoid;
+  a {
+    text-decoration: none;
   }
 }
 

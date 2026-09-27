@@ -970,6 +970,7 @@ ul {
   .project-featured .project-media img {
     height: 100%;
     aspect-ratio: auto;
+    object-position: center;
   }
 
   .project-featured .project-body {
